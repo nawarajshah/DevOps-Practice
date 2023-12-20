@@ -2,7 +2,7 @@
 ## Install Jenkins on Ubuntu 22.04
 
 ### Install Java
-Jenkins is a Java-based application, so you need to install Java Development Kit (JDK). OpenJDK is a widely used option. Open the terminal and run the below commands to install OpenJDK 17.
+Jenkins is a Java-based application, so you need to install Java Development Kit (JDK). OpenJDK is a widely used option. Open terminal and run below commands to install OpenJDK 17.
 
 	sudo apt update
 	sudo apt install fontconfig openjdk-17-jre -y
@@ -36,7 +36,7 @@ Now, install Jenkins using the following apt commands.
 ![Install-Jenkins-on-Ubuntu-22-04](https://www.linuxbuzz.com/wp-content/uploads/2023/11/Install-Jenkins-on-Ubuntu-22-04.png)
 
 ### Start and Enable Jenkins Service
-Whenever we install Jenkins using the apt command then its service starts automatically, to verify Jenkins service status, run the following command.
+Whenever we install Jenkins using apt command then its service started automatically, to verify Jenkins service status, run following command.
 
 	sudo systemctl enable jenkins
 
@@ -49,7 +49,7 @@ Retrieve the Jenkins unlock key by executing the following command.
 
 	sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 
-Copy this password and paste it into the “Administrator password” field as shown below:
+Copy this password and paste it on “Administrator password” field as show below:
 
 ![Jenkins-Initial-Admin-Password-Ubuntu-22-04](https://www.linuxbuzz.com/wp-content/uploads/2023/11/Jenkins-Initial-Admin-Password-Ubuntu-22-04.png)
 
@@ -75,15 +75,19 @@ Click on “Save and Finish”.
 
 ![Jenkins-Ready-for-Use-Ubuntu-22-04](https://www.linuxbuzz.com/wp-content/uploads/2023/11/Jenkins-Ready-for-Use-Ubuntu-22-04.png)
 
-Click on “Start using Jenkins” and this will take us to the Jenkins dashboard.
+Click on “Start using Jenkins” and this will take us to Jenkins dashboard.
 
 ![Jenkins-Dashboard-Post-Installation-Ubuntu-22-04](https://www.linuxbuzz.com/wp-content/uploads/2023/11/Jenkins-Dashboard-Post-Installation-Ubuntu-22-04.png)
 
-Great, the above dashboard confirms that you have successfully installed Jenkins on Ubuntu 22.04.
+Great, above dashboard confirms that you have successfully installed Jenkins on Ubuntu 22.04.
 
-### Test Jenkins Installation with the FreeStyle project
-To test our Jenkins installation, let’s create a demo job. Follow the instructions as shown in the below image.
+### Test Jenkins Installation with FreeStyle project
+In order to test our Jenkins installation, let’s create demo job. Follow the instructions as shown in below image.
+
+	#!/bin/bash
+
+	echo "This is Jenkins Demo"
 
 ![Jenkins-Demo-Job-Ubuntu-22-04](https://www.linuxbuzz.com/wp-content/uploads/2023/11/Jenkins-Demo-Job-Ubuntu-22-04.gif)
 
-Reference: [linuxbuzz.com](https://www.linuxbuzz.com/how-to-install-jenkins-on-ubuntu/)
+Refrence: [linuxbuzz.com](https://www.linuxbuzz.com/how-to-install-jenkins-on-ubuntu/)
