@@ -19,7 +19,8 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image
-                    def dockerImage = dockerTool build('-f React-Quiz-App-main/Dockerfile .')
+                    def dockerImage = tool name: 'Docker', type: 'docker'
+                    dockerImage.build('-f React-Quiz-App-main/Dockerfile .')
 
                     // Run the Docker container
                     dockerImage.run('-p 8080:80 --name react-quiz-app-container')
@@ -37,17 +38,4 @@ pipeline {
             echo 'Pipeline successful!'
         }
 
-        failure {
-            // Actions to perform if the pipeline fails
-            echo 'Pipeline failed!'
-        }
-
-        always {
-            // Cleanup steps (e.g., stop and remove Docker containers)
-            script {
-                dockerTool.image('react-quiz-app').stop()
-                dockerTool.image('react-quiz-app').remove()
-            }
-        }
-    }
-}
+   
