@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        nodejs "nodejs-16.15.0"  // Adjust version as needed
+    }
 
     stages {
         stage('Build') {
