@@ -2,9 +2,8 @@ pipeline {
     agent any
 
     tools {
-        // Assuming you have configured Node.js and Docker in Jenkins
         nodejs 'NodeJS'
-        docker 'docker'
+        docker 'Docker'
     }
 
     stages {
@@ -21,11 +20,6 @@ pipeline {
                     // Build the Docker image
                     def dockerImage = docker.build('react-quiz-app', '-f React-Quiz-App-main/Dockerfile .')
 
-                    // Push the Docker image to a registry if needed
-                    // docker.withRegistry('https://your-docker-registry.com', 'credentials-id') {
-                    //     dockerImage.push()
-                    // }
-
                     // Run the Docker container
                     dockerImage.run('-p 8080:80 --name react-quiz-app-container')
 
@@ -40,8 +34,6 @@ pipeline {
         success {
             // Actions to perform if the pipeline is successful
             echo 'Pipeline successful!'
-
-            // Optionally, trigger downstream jobs or notify external systems
         }
 
         failure {
