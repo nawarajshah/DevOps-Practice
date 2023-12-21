@@ -1,16 +1,23 @@
 pipeline {
     agent any
 
-    tools {
-        // Specify the correct Maven installation name
-        maven 'Maven'
-    }
-
     stages {
-        // Your stages go here
+        stage('Build') {
+            steps {
+                echo 'Building the project...'
+                // Add your build steps here
+            }
+        }
     }
 
     post {
-        // Your post-build actions go here
+        success {
+            echo 'Pipeline successful!'
+            // Add actions for a successful build
+        }
+        failure {
+            echo 'Pipeline failed!'
+            // Add actions for a failed build
+        }
     }
 }
