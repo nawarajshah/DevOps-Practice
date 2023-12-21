@@ -2,8 +2,9 @@ pipeline {
     agent any
 
     tools {
+        // Use the correct tool names configured in Jenkins for Node.js and Docker
         nodejs 'NodeJS'
-        docker 'Docker'
+        dockerTool 'Docker'
     }
 
     stages {
@@ -18,7 +19,7 @@ pipeline {
             steps {
                 script {
                     // Build the Docker image
-                    def dockerImage = docker.build('react-quiz-app', '-f React-Quiz-App-main/Dockerfile .')
+                    def dockerImage = dockerTool build('-f React-Quiz-App-main/Dockerfile .')
 
                     // Run the Docker container
                     dockerImage.run('-p 8080:80 --name react-quiz-app-container')
@@ -44,8 +45,8 @@ pipeline {
         always {
             // Cleanup steps (e.g., stop and remove Docker containers)
             script {
-                docker.image('react-quiz-app').stop()
-                docker.image('react-quiz-app').remove()
+                dockerTool.image('react-quiz-app').stop()
+                dockerTool.image('react-quiz-app').remove()
             }
         }
     }
