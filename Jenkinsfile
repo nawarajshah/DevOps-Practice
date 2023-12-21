@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-stages {
+    stages {
         stage('Build') {
             steps {
                 echo 'Building the application...'
@@ -17,7 +17,7 @@ stages {
         stage('Deploy') {
             steps {
                 echo 'Deploying the application...'
-                // Add your deployment commands here
+                // Replace with your deployment commands
             }
         }
     }
