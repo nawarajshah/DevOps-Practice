@@ -40,6 +40,10 @@ Whenever we install Jenkins using apt command then its service started automatic
 
 	sudo systemctl enable jenkins
 
+### Change Security group
+
+Go to security group attach on your instance and set inbound rule to **type: All traffic** and **CIDR: 0.0.0.0/0**.
+
 ### Access Jenkins Setup Wizard
 Jenkins runs on port 8080 by default. Open your web browser and navigate to the following URL: http://instance-public-IP-Address:8080
 
